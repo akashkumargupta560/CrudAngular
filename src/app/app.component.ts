@@ -10,9 +10,11 @@ import { UsersService } from 'src/services/users.service';
 export class AppComponent {
   title = 'angularFile';
   userForm!: FormGroup;
+  userData:any;
   constructor(private fb: FormBuilder, private userSrv:UsersService) { }
   ngOnInit(): void {
     this.baseForm();
+    this.getUserData();
   }
   baseForm() {
     this.userForm =this.fb.group({
@@ -32,5 +34,11 @@ export class AppComponent {
         this.userForm.reset();
       })
     }
+  }
+  getUserData(){
+    this.userSrv.getUserApi().subscribe((response:any) =>{
+      this.userData = response;
+      console.log('profileData',this.userData)
+    })
   }
 }

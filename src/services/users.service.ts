@@ -15,18 +15,18 @@ export class UsersService {
     }))
   }
 
-  getApiUser(){
-    this.httpSrv.get(this.baseUrl).pipe(map((response:any) => {
+  getUserApi(){
+    return this.httpSrv.get(this.baseUrl).pipe(map((response:any) => {
       return response;
     }))
   }
-  deleteApiUser(id:any){
-    this.httpSrv.delete<any>(this.baseUrl+id).pipe(map((response:any) =>{
+  deleteUserApi(id:any){
+    return this.httpSrv.delete<any>(this.baseUrl+id).pipe(map((response:any) =>{
       return response;
     }))
   }
-  updateApiUser(id:any,body:any){
-    this.httpSrv.put<any>(this.baseUrl+id,body).pipe(map((response:any) =>{
+  updateUserApi(id:any,body:any){
+    return this.httpSrv.put<any>(this.baseUrl+id,body).pipe(map((response:any) =>{
       return response
     }))
   }
