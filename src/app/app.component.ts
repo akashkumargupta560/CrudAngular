@@ -11,6 +11,7 @@ export class AppComponent {
   title = 'angularFile';
   userForm!: FormGroup;
   userData:any;
+  deleteUserProfile:any;
   constructor(private fb: FormBuilder, private userSrv:UsersService) { }
   ngOnInit(): void {
     this.baseForm();
@@ -39,6 +40,12 @@ export class AppComponent {
     this.userSrv.getUserApi().subscribe((response:any) =>{
       this.userData = response;
       console.log('profileData',this.userData)
+    })
+  }
+  DeletProfile(row:any){
+    this.userSrv.deleteUserApi(row.id).subscribe((res) =>{
+      this.deleteUserProfile =res;
+      this.getUserData();
     })
   }
 }
