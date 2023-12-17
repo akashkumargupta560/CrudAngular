@@ -21,13 +21,18 @@ export class UsersService {
     }))
   }
   deleteUserApi(id:any){
-    return this.httpSrv.delete<any>(this.baseUrl+id).pipe(map((response:any) =>{
+    return this.httpSrv.delete<any>(this.baseUrl + id).pipe(map((response:any) =>{
       return response;
     }))
   }
-  updateUserApi(id:any,body:any){
-    return this.httpSrv.put<any>(this.baseUrl+id,body).pipe(map((response:any) =>{
-      return response
+  // updateUserApi(id:any,data:any){
+  //   return this.httpSrv.put<any>(this.baseUrl + id,data).pipe(map((response:any) =>{
+  //     return response
+  //   }))
+  // }
+  updateUserApi(data: any, id: number) {
+    return this.httpSrv.put<any>(this.baseUrl + id, data).pipe(map((res: any) => {
+      return res;
     }))
   }
 
